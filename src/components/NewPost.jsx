@@ -1,9 +1,18 @@
 
 import classes from "./NewPost.module.css";
 
-function NewPost({modalOpenHandler}) {
+function NewPost({modalOpenHandler, addPostHandler}) {
+
+    function submitHandler(event) {
+        event.preventDefault();
+        const title = event.target.title.value;
+        const content = event.target.content.value;
+        const post = {title, content};
+        addPostHandler(post);
+        modalOpenHandler(false);
+    }
     return (
-        <form className={classes.form}>
+        <form className={classes.form} onSubmit={submitHandler}>
             <p>
                 <label htmlFor="title">Title</label>
                 <input required type="text" id="title" />

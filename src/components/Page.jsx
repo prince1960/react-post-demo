@@ -10,15 +10,28 @@ function Page() {
   function modalOpenHandler(isOpen) {
     setModalIsOpen(isOpen);
   }
-  
+
+  function addPostHandler(postData) {
+    setPosts((prevPosts) => {
+      return [...prevPosts, postData];
+    });
+  }
+  //in ES5  - 
+  /*function addPostHandler(postData) {
+    setPosts(function (prevPosts) {
+      return prevPosts.concat(postData);
+    });
+  } */
+
+
   return (
-        <div>
-            <MainHeader modalOpenHandler={modalOpenHandler}/>
-            {modalIsOpen && <Modal modalOpenHandler={modalOpenHandler}>
-                <NewPost modalOpenHandler={modalOpenHandler}/>
-            </Modal>}
-        </div>
-    );
+    <div>
+      <MainHeader modalOpenHandler={modalOpenHandler} />
+      {modalIsOpen && <Modal modalOpenHandler={modalOpenHandler}>
+        <NewPost modalOpenHandler={modalOpenHandler} addPostHandler={addPostHandler} />
+      </Modal>}
+    </div>
+  );
 }
 
 export default Page;

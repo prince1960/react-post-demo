@@ -1,8 +1,8 @@
 import './App.css'
-import Post from './components/Post';
+import Page from './components/Page';
 
 function App() {
-  return <Post />;
+  return <Page />;
 }
 
 export default App

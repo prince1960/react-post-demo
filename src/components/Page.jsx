@@ -2,6 +2,7 @@ import MainHeader from "./MainHeader";
 import NewPost from "./NewPost";
 import Modal from "./Modal";
 import { useState } from "react";
+import PostList from "./PostList";
 
 function Page() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -30,7 +31,9 @@ function Page() {
       {modalIsOpen && <Modal modalOpenHandler={modalOpenHandler}>
         <NewPost modalOpenHandler={modalOpenHandler} addPostHandler={addPostHandler} />
       </Modal>}
+      <PostList posts={posts} />
     </div>
+
   );
 }
 

@@ -6,8 +6,9 @@ function NewPost({modalOpenHandler, addPostHandler}) {
     function submitHandler(event) {
         event.preventDefault();
         const title = event.target.title.value;
+        const id = crypto.randomUUID();
         const content = event.target.content.value;
-        const post = {title, content};
+        const post = {title, content, id};
         addPostHandler(post);
         modalOpenHandler(false);
     }
